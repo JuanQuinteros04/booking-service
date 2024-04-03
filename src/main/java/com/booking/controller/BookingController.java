@@ -1,7 +1,7 @@
 package com.booking.controller;
 
-import com.booking.model.DTO.BookingDTO;
-import com.booking.model.DTO.BookingResponse;
+import com.commons.client.model.DTO.BookingDTO;
+import com.commons.client.model.DTO.BookingResponse;
 import com.booking.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

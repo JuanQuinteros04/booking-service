@@ -1,6 +1,6 @@
 package com.booking.persistence;
 
-import com.booking.model.Booking;
+import com.commons.client.model.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

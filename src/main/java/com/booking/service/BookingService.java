@@ -1,7 +1,7 @@
 package com.booking.service;
 
-import com.booking.model.DTO.BookingDTO;
-import com.booking.model.DTO.BookingResponse;
+import com.commons.client.model.DTO.BookingDTO;
+import com.commons.client.model.DTO.BookingResponse;
 
 import java.util.List;
 

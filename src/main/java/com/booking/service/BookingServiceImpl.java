@@ -1,13 +1,20 @@
 package com.booking.service;
 
+import com.booking.client.ClientPreferencesFeignClient;
 import com.booking.exception.NotFoundException;
-import com.booking.model.Booking;
-import com.booking.model.DTO.BookingDTO;
-import com.booking.model.DTO.BookingResponse;
-import com.booking.model.mapper.BookingMapper;
 import com.booking.persistence.BookingRepository;
+import com.commons.client.model.Booking;
+import com.commons.client.model.ClientPreferences;
+import com.commons.client.model.DTO.BookingDTO;
+import com.commons.client.model.DTO.BookingResponse;
+import com.commons.client.model.mappers.BookingMapper;
+import com.commons.client.model.mappers.ClientPreferencesMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.booking.client.ClientFeignClient;
+import com.commons.client.model.Client;
+import com.commons.client.model.mappers.ClientMapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,18 +25,17 @@ public class BookingServiceImpl implements BookingService{
     @Autowired
     BookingRepository bookingRepository;
 
+    @Autowired
+    ClientFeignClient clientFeignClient;
 
-//    @Autowired
-//    ClientPreferencesService clientPreferencesService;
+    @Autowired
+    ClientPreferencesFeignClient clientPreferencesFeignClient;
 
-//    @Autowired
-//    ClientRepository clientRepository;
-
-//    ClientPreferencesMapper clientPreferencesMapper = ClientPreferencesMapper.INSTANCE;
+    ClientPreferencesMapper clientPreferencesMapper = ClientPreferencesMapper.INSTANCE;
 
     BookingMapper bookingMapper = BookingMapper.INSTANCE;
 
-
+    ClientMapper clientMapper = ClientMapper.INSTANCE;
 
 
     @Override
@@ -39,37 +45,38 @@ public class BookingServiceImpl implements BookingService{
 
     @Override
     public BookingResponse findById(Long id) {
+//        return bookingMapper.bookingToBookingResponse(bookingRepository.findById(id).orElseThrow(NotFoundException::new));
         return bookingMapper.bookingToBookingResponse(bookingRepository.findById(id).orElseThrow(NotFoundException::new));
     }
 
     @Override
     public BookingResponse createBooking(BookingDTO bookingDTO) {
 
-//        Client client = clientRepository.findById(bookingDTO.getClientId()).orElseThrow(NotFoundException::new);
-//
-////         Eliminar reservas antiguas si es necesario
-//        client.getBookings().clear();
+        Client client = clientMapper.clientResponseToClient(clientFeignClient.findClientById(bookingDTO.getClientId()));
+
+//         Eliminar reservas antiguas si es necesario
+        client.getBookings().clear();
 
 
         Booking booking = bookingMapper.bookingDTOToBooking(bookingDTO);
-//        booking.setClient(client);
+        booking.setClient(client);
         bookingRepository.save(booking);
 
-//        client.getBookings().add(booking);
-//
-//        ClientPreferences clientPreferences = clientPreferencesMapper.clientPreferencesResponseToClientPreferences(clientPreferencesService.findById(booking.getClient().getId()));
+        client.getBookings().add(booking);
 
-//        updatePreferences(clientPreferences, booking);
+        ClientPreferences clientPreferences = clientPreferencesMapper.clientPreferencesResponseToClientPreferences(clientPreferencesFeignClient.findById(booking.getClient().getId()));
+
+        updatePreferences(clientPreferences, booking);
 
         return bookingMapper.bookingToBookingResponse(booking);
     }
 
-//    private void updatePreferences(ClientPreferences clientPreferences, Booking booking){
-//        clientPreferences.setClientId(booking.getClient().getId());
-//        clientPreferences.setTypeRoom(booking.getTypeRoom());
-//        clientPreferences.setNumberPeople(booking.getNumberPeople());
-//        clientPreferences.setPrice(booking.getPrice());
-//    }
+    private void updatePreferences(ClientPreferences clientPreferences, Booking booking){
+        clientPreferences.setClientId(booking.getClient().getId());
+        clientPreferences.setTypeRoom(booking.getTypeRoom());
+        clientPreferences.setNumberPeople(booking.getNumberPeople());
+        clientPreferences.setPrice(booking.getPrice());
+    }
 
     @Override
     public void updateBooking(Long id, BookingDTO bookingDTO) {
