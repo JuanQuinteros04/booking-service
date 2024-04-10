@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17452f88-6a18-4afd-ae78-5696ee6a1fcf" name="Changes" comment="Using the Commons dependency.">
+    <list default="true" id="17452f88-6a18-4afd-ae78-5696ee6a1fcf" name="Changes" comment="Added commons dependency, functionality, create a user preference automatically when creating a reservation, created.">
       <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/client/RoomFeignClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
@@ -118,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712186826517</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added commons dependency, functionality, create a user preference automatically when creating a reservation, created.">
+      <option name="closed" value="true" />
+      <created>1712788421760</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712788421760</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -128,6 +136,7 @@
     <MESSAGE value="Classes used in commons removed." />
     <MESSAGE value="Unnecessary dependencies removed." />
     <MESSAGE value="Using the Commons dependency." />
-    <option name="LAST_COMMIT_MESSAGE" value="Using the Commons dependency." />
+    <MESSAGE value="Added commons dependency, functionality, create a user preference automatically when creating a reservation, created." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added commons dependency, functionality, create a user preference automatically when creating a reservation, created." />
   </component>
 </project>
