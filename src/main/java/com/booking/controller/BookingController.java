@@ -1,7 +1,7 @@
 package com.booking.controller;
 
-import com.commons.client.model.DTO.BookingDTO;
-import com.commons.client.model.DTO.BookingResponse;
+import com.commons.booking.model.DTO.BookingDTO;
+import com.commons.booking.model.DTO.BookingResponse;
 import com.booking.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -41,11 +41,11 @@ public class BookingController {
         return ResponseEntity.created(location).body(bookingResponse);
     }
 
-    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void>updateBooking(@PathVariable("id")Long id, @RequestBody BookingDTO bookingDTO){
-        bookingService.updateBooking(id, bookingDTO);
-        return ResponseEntity.status(204).build();
-    }
+//    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public ResponseEntity<Void>updateBooking(@PathVariable("id")Long id, @RequestBody BookingDTO bookingDTO){
+//        bookingService.updateBooking(id, bookingDTO);
+//        return ResponseEntity.status(204).build();
+//    }
 
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void>deleteBooking(@PathVariable("id") Long id){

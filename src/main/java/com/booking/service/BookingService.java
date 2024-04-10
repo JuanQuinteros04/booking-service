@@ -1,7 +1,7 @@
 package com.booking.service;
 
-import com.commons.client.model.DTO.BookingDTO;
-import com.commons.client.model.DTO.BookingResponse;
+import com.commons.booking.model.DTO.BookingDTO;
+import com.commons.booking.model.DTO.BookingResponse;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public interface BookingService {
 
     BookingResponse createBooking(BookingDTO bookingDTO);
 
-    void updateBooking(Long id,BookingDTO bookingDTO);
+//    void updateBooking(Long id,BookingDTO bookingDTO);
 
     void deleteBooking(Long id);
 

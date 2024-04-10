@@ -30,6 +30,24 @@
             <version>1.0.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.commons.booking</groupId>
+            <artifactId>com.commons.booking</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.commons.preferences</groupId>
+            <artifactId>com.commons.preferences</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.commons.room</groupId>
+            <artifactId>commons-service-room</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <!--		<dependency>-->
         <!--			<groupId>org.springframework.cloud</groupId>-->
         <!--			<artifactId>spring-cloud-starter-config</artifactId>-->
@@ -119,13 +137,6 @@
         <!--			<artifactId>springfox-swagger-ui</artifactId>-->
         <!--			<version>2.9.2</version>-->
         <!--		</dependency>-->
-
-        <dependency>
-            <groupId>com.hotel</groupId>
-            <artifactId>commons-service</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
 
     </dependencies>
 

@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @EnableFeignClients
-@EntityScan({"com.commons.client.model"})
+@EntityScan({"com.commons.booking.model"})
 public class BookingServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(BookingServiceApplication.class);

@@ -1,7 +1,7 @@
 package com.booking.client;
 
-import com.commons.client.model.DTO.ClientPreferencesDTO;
-import com.commons.client.model.DTO.ClientPreferencesResponse;
+import com.commons.preferences.model.DTO.ClientPreferencesDTO;
+import com.commons.preferences.model.DTO.ClientPreferencesResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +17,9 @@ public interface ClientPreferencesFeignClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/client/preferences/{id}")
     ClientPreferencesResponse findById(@PathVariable("id") Long id);
+
+    @RequestMapping(method = RequestMethod.GET, value = "/client/preferences/client/{id}")
+    ClientPreferencesResponse findByClientId(@PathVariable("id") Long id);
 
     @RequestMapping(method = RequestMethod.POST, value = "/client/preferences")
     ClientPreferencesResponse createClientPreferences(ClientPreferencesDTO userPreferencesDTO);
